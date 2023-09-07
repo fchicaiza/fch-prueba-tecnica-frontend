@@ -1,4 +1,4 @@
-import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import { IonApp, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonMenu, IonMenuToggle, IonRouterOutlet, IonSplitPane, IonTitle, IonToggle, IonToolbar, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
@@ -21,6 +21,11 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import AllActivities from './pages/AllActivitiesPage/AllActivities';
+import AddActivities from './pages/AddActivitiesPage/AddActivities';
+import { cart } from 'ionicons/icons'
+import Product from './pages/ProductPage/Product';
+import Home from './pages/HomePage/Home';
 
 setupIonicReact();
 
@@ -28,9 +33,28 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonSplitPane contentId="main">
-          <IonRouterOutlet id="main">
-          
+        {/* Add Menu */}
+        <IonMenu contentId="productManage">
+          <IonHeader>
+            <IonToolbar>
+              <IonTitle>Gestión de Productos</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+          <IonContent >
+            <IonMenuToggle>
+              <IonItem routerLink='/manage-product' routerDirection='none' lines='none'>
+                <IonIcon color='medium' slot='start' icon={cart} />
+                <IonLabel>Gestión de productos</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+          </IonContent>
+        </IonMenu>
+        {/* Add Menu */}
+        <IonSplitPane contentId="productManage">
+          <IonRouterOutlet id="productManage">
+            <Route path="/manage-product" component={Product} exact />
+            <Route path="/home" component={Home} exact />
+            <Redirect to="home" />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
