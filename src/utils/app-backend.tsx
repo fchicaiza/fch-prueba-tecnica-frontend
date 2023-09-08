@@ -1,6 +1,13 @@
-export const appBackend={
-    crud:{
+export const uriInformation = {
+    uri: {
+        url:"http://localhost",
+        port:":5086/"
+    }
+}
+
+export const appBackend = {
+    crud: {
         name: "api/",
-        target:"product/"
+        target: "product/"
     }
 }

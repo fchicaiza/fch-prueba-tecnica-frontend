@@ -1,7 +1,8 @@
 import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react'
 import React from 'react'
-
+import Products from '../../components/Products/Products'
 export const Product: React.FC = () => {
+
   return (
     <IonPage>
       <IonHeader>
@@ -13,13 +14,7 @@ export const Product: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonGrid>
-          <IonRow>
-            <IonCol>
-              <h1>Componente de Producto</h1>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+      <Products></Products>
       </IonContent>
     </IonPage>
   )
